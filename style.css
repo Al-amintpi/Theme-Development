@@ -1,0 +1,16 @@
+/*
+
+Theme Name:Alamin 1st theme setup
+Theme URI:https://coderit.fun/ELEMENTOR;
+Author:Al-Amin;
+Author URI:https://alaminportfolio.herokuapp.com;
+Description:Our 2021 default theme is designed to show off the power of the block editor. It features custom styles for all the default blocks;
+Tags:wordpress,wordpress developer,theme development,theme customization;
+Version:1.0.1;
+
+
+*/
+
+h1{
+	color:red;
+}
