@@ -35,25 +35,26 @@
 </head> পূর্বেই wp-header() ডিফাইন করে দিবো <br>
 footerশেষ হওয়ার পর্বেই wp-footer ডিফাইন করে দিবো <br>
 :underage:আমরা যে পেজ যাবো সেই পেজে অনুযায়ী ক্লাস গুলি পাওয়ার জন্য body টা body_class() লিখব <br>
-#----------এখন আমরা ওয়ার্ডপ্রেস যে title,description,languages ,charset যেন অটোমেটিক পেজ গুলি পাই সেই জন্য নিচে ফাঙ্কশন গুলি দেখবো  <br>
+#এখন আমরা ওয়ার্ডপ্রেস যে title,description,languages ,charset যেন অটোমেটিক পেজ গুলি পাই সেই জন্য নিচে ফাঙ্কশন গুলি দেখবো  <br>
 :recycle: bloginfo('title')<br>
 :recycle: bloginfo('description')<br>
 :recycle: language_attributes()<br>
-:recycle: bloginfo('charset');
+:recycle: bloginfo('charset');<br>
+ পার্ট-৫ <br>
+ নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
+ ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
+ আর এই প্রসেস তে হইলো <br>
+ (function($){<br>
+ ভিতরে সব স্ক্রিপ্ট code থাকবে <br>
+})(jQuery);<br>
+ step -১: গিটহাব থেকে Redux ফাইল টি ডাউনলোড দিবো <br>
+ setp -২: থিম ভিতরে একটি ফোল্ডার নিবো।<br> 
+ step -৩: গিটহাব থেকে ডাউনলোডকিত ফাইলটি ভিতরে ফাইল গুলি কপি করে পেস্ট করবো।<br><br> 
+ step -৪: থিম ভিতরে যে functions.php ফাইলটি আছে ওটি তে ডাউনলোড করে কিছু ফাইল অ্যাড করবো<br><br>
+ step -৫: sample.config .php ফাইল টিকে কপি করে rename config.php করবো আর সব কাজ এর ভিতরে করবো <br>
+ step -৬: require_once("inc/Redux/ReduxCore/framework.php");<br>
+ step -৭: require_once("inc/Redux/sample/config.php");<br>
 
-
-
-
-
-
-
-
-
-  
-   
-   
-   
-   
    
    
    
