@@ -35,11 +35,64 @@
 </head> পূর্বেই wp-header() ডিফাইন করে দিবো <br>
 footerশেষ হওয়ার পর্বেই wp-footer ডিফাইন করে দিবো <br>
 :underage:আমরা যে পেজ যাবো সেই পেজে অনুযায়ী ক্লাস গুলি পাওয়ার জন্য body টা body_class() লিখব <br>
-#এখন আমরা ওয়ার্ডপ্রেস যে title,description,languages ,charset যেন অটোমেটিক পেজ গুলি পাই সেই জন্য নিচে ফাঙ্কশন গুলি দেখবো  <br>
+# এখন আমরা ওয়ার্ডপ্রেস যে title,description,languages ,charset যেন অটোমেটিক পেজ গুলি পাই সেই জন্য নিচে ফাঙ্কশন গুলি দেখবো  <br>
 :recycle: bloginfo('title')<br>
 :recycle: bloginfo('description')<br>
 :recycle: language_attributes()<br>
 :recycle: bloginfo('charset');<br>
+ 
+পার্ট-২: :fire: <br>
+আমাদের ব্যাকএন্ড সকল কাজ functions.php ভিতরে হবে।<br>
+function গুলিকে কাজ করাতে গেলে আমাকে wp hocks use করতে হবে। দুইটি hocks যথা :<br>
+১.add_action();<br>
+২.add_filter();<br>
+add_action(): ডিফল্ট ভাবে যে ফাঙ্কশন গুলি আছে সেই ফাঙ্কশন গুলি কে কাজ করানোর। <br>
+add_filter(): ফাঙ্কশন গুলি কে modify করে ব্যবহার করার জন্য এই ফাঙ্কশন ব্যবহার করে হয়.<br>
+Menu Register করার জন্য নিচে কাজ গুলি করবো <br>
+single Menu ও Multi-Menu রেজিস্টার করার জন্য <br>
+ ```
+ function coder_it_theme(){
+	add_theme_support("title-tag");
+
+	// Menu
+  //single-menu Register 
+	 register_nav_menu("main-menu","Main Menu"); 
+	// multi-menu Register
+	register_nav_menus(array(
+		"Main-menu" => "main-menu",
+		"Footer-menu" => "footer-menu"
+
+	));
+
+}
+add_action("after_setup_theme","coder_it_theme")
+ ```
+ওয়ার্ডপ্রেস ড্যাশবোর্ড থেকে appearence-menus ওইখানে আমরা menu গুলি অ্যাড করবো <br> .
+তারপর header.php নিচে কোড গুলি করবো 
+```
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<?php wp_head(); ?>
+</head>
+<body>
+<div class="header-menu">
+	<?php 
+
+     wp_nav_menu(array(
+
+     	"theme_location" => "Main-menu"
+     ))
+
+	?>
+</div>
+
+```
+
+ 
+ 
+ 
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
