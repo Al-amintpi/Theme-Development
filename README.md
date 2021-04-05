@@ -90,8 +90,57 @@ add_action("after_setup_theme","coder_it_theme")
 
 ```
 
+যতগুলি মেনু তৈরি করবো ঠিক ততো গুলি functions.php তে মেনু রেজিস্টার করবো  <br>
+আমাদের কাছে মেনু register id গুলি খুব important . <br>
+ এত টুকু কাজ করলে মেনু রেজিস্টার শেষ <br>
+ :end::end::end::end::end:
  
+ :red_circle: SideBar কি ভাবে রেজিস্টার করতে হয় সেই সম্পর্কে জানব <br>
  
+ প্রথম আমাকে slidebar functions.php register করে নিতে হবে <br>
+ ```
+ // Sidebar Register
+function first_sidebar(){
+	register_sidebar(array(
+
+		"name" => "Right Sidebar",
+		"id" => "right-sidebar"
+	));
+}
+add_action("widgets_init","first_sidebar");
+ ```
+ 
+ আমরা মাল্টিপল slide-bar ব্যবহার করবো যা ভাবে 
+ 
+ ```
+ // Sidebar Register
+function first_sidebar(){
+	register_sidebar(array(
+
+		"name" => "Right Sidebar",
+		"id" => "right-sidebar",
+		"before_widget" => '<div class="sidebar-1">',
+		"after_widget" => '</div>'
+	));
+
+	register_sidebar(array(
+
+		"name" => "Footer Slidebar",
+		"id" => "footer-slidebar"
+	));
+}
+add_action("widgets_init","first_sidebar");
+ ```
+ 
+ দ্বিতীয় যে পেজে widget গুলি দেখাবো
+ ```
+ <div class="sidebar-area">
+		<h1>Our Sidebar</h1>
+		<?php dynamic_sidebar('right-sidebar'); ?>
+
+	</div>	sfddsa
+ ```
+ :end::end::end::end::end:
  
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
