@@ -169,6 +169,31 @@ add_action("after_setup_theme","coder_it_theme");
 ```
 :end::end::end::end::end::end::end::end::end::end:
 
+পার্ট-৪ <br>
+আজকে আমরা জানবো কিভাবে post-type-register করতে হয় <br>
+আমরা যেভাবে menu-register করেছি ঠিক সেই ভাবে post-type-register .<br>
+post-type-register বলতে blog-post মতো repited এমন কিছু জন্য নতুন অ্যাড পোস্ট তৈরি করাকে বুঝাই <br>
+```
+// Post type register
+	register_post_type("service",array(
+		"labels" => array(
+			"name" => "Service",
+			"add_new" => "Add New Service",
+			"add_new_item" => "Add New Service",
+			"featured_image" => "Service Image",
+			"set_featured_image" => "Set Service Image",
+			"remove_featured_image" => "Remove Service Image",
+			"use_featured_image" => "Use Service Image"
+
+		),
+		"public" => true,
+		"supports" => array('title', 'editor','thumbnail'),
+		"menu_position" => 5,
+		"menu_icon" => "dashicons-admin-generic"
+
+	));
+```
+
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
