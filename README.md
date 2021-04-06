@@ -193,6 +193,55 @@ post-type-register বলতে blog-post মতো repited এমন কিছ�
 
 	));
 ```
+এখন আমরা জানবো কিভাবে taxonomy-register করতে হয় :point_right: <br>
+taxonomy বলতে আমরা blog post যেরকম category দেখেছি ঠিক তেমনি category তৈরি করতে হবে <br>
+```
+// Register Taxonomy-category
+	register_taxonomy("service-type","service",array(
+		'labels' => array(
+			"name" => "Service Type",
+			"singular_name" =>"Service Type",
+			"parent_item" => "Parent Service Type",
+			"add_new_item" => "Add New Service Type",
+			"new_item_name" => "New Item Service Type"
+
+		),
+		'hierarchical' => true,
+		'public' => true
+	));
+```
+
+
+আমাকে সবসময় একটি বিষয় খেয়াল রাখতে হবে যে পেজে যেই content সেই পেজ দেখনো। <br>
+template তৈরি করে ও টেম্পলেট ভিতরে যে content আছে যে পেজে content গুলি দরকার সেই template select করে দেয়া। <br>
+
+এখন আমরা জানবো কিভাবে taxonomy গুলি পেজ দেখনো যাই :point_right: <br>
+```
+<div class="page-area2">
+
+	<?php
+
+		$service = new WP_Query(array(
+			"post_type" => "service"
+		));
+
+	 ?>
+
+	<?php while($service->have_posts()): $service->the_post(); ?>
+		<h1><?php the_title(); ?></h1>
+		<p><?php the_content(); ?></p>
+		 
+		<?php 
+			$terms = get_the_terms(get_the_id(), "service-type");
+			foreach($terms as $term) :?>
+
+				<li><?php echo $term->name; ?></li>
+			<?php endforeach; ?>
+		<hr>
+	<?php endwhile; ?>
+
+</div>
+```
 
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
