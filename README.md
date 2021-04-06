@@ -243,6 +243,58 @@ template তৈরি করে ও টেম্পলেট ভিতরে য
 </div>
 ```
 
+এখন আমরা জানবো কিভাবে Taxonomy-related পোস্ট গুলি দেখানো যাই  category-:point_right: <br> 
+যখন কোন ব্যাবহারকারী একটি Taxonomy ক্লিক করবে ওই Taxonomy টি যে কয়টি service অ্যাড আছে সব কয়টি service দেখেবে। <br>
+সেই জন্য আমাকে Taxonomy যে id টি দিয়েছি ওই id দিয়ে পেজ বানাতে হবে। সাথে taxonomy লিখতে হবে <br>
+example :taxonomy-service_type.php <br>
+সাথে আরো একটি কাজ permalink গিয়ে post select করবো। <br>
+পেজ ভিতরে ইনডেক্স যেভাবে পোস্ট গুলি show করাই ছিলাম ঠিক ওই ভাবে ওই কোড গুলি দিবো <br>
+```
+<?php get_header(); ?>
+
+<?php while(have_posts()):the_post(); ?>
+	<h1><?php the_title(); ?></h1>
+	<p><?php the_content(); ?></p>
+<?php endwhile ?>
+
+<?php get_footer(); ?>
+```
+আর একটি কথা Taxonomy id অবশ্যই _ symbol ব্যবহার করবো। 
+
+এখন আমরা জানবো কিভাবে একটি পোস্ট click করলে ওই পোস্ট সব কিছু দেখাবে  :point_right: <br> 
+আমরা এর আগে যেভাবে blog post সিঙ্গেল পেজে তৈরি করেছিলাম ঠিক একই ভাবে taxonomy single পেজ তৈরি করবো 
+সেই জন্য আমাকে post_type যে id দিয়াছিলাম ওই id দিয়ে পেজ বানাতে হবে 
+example :single-service 
+আর সিঙ্গেল পেজ যে কনটেন্ট গুলি ছিল সেই গুলি কপি করে পেস্ট করলে ওকে 
+
+```
+<?php get_header(); ?>
+
+<div class="page-area">
+	<div class="content-area">
+
+		<?php while(have_posts()):the_post(); ?>
+			<hr>
+			<div class="single-post">
+				<h1>Title:<?php the_title(); ?></h1>
+				<?php the_post_thumbnail(); ?>
+				<p>Content:<?php the_content(); ?></p>
+				 
+				 
+			</div>
+			 
+			<hr>
+		<?php endwhile; ?>	
+
+	</div>
+
+	 
+</div>
+
+
+<?php get_footer(); ?>
+```
+
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
