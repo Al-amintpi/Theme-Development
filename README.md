@@ -142,6 +142,33 @@ add_action("widgets_init","first_sidebar");
  ```
  :end::end::end::end::end:
  
+ পার্ট-৩ :fire: <br>
+ Feature Image কিভাবে অ্যাড করবো তা জানবো :point_right: <br>
+ ```
+ function coder_it_theme(){
+	add_theme_support("post-thumbnails");
+
+}
+add_action("after_setup_theme","coder_it_theme");
+ ```
+কিভাবে পোস্ট শো করাবো ?:point_right: 
+```
+<?php while(have_posts()):the_post(); ?>
+<hr>
+ <div class="single-post">
+	<h1>Title:<?php the_title(); ?></h1>
+	<?php the_post_thumbnail(); ?>
+	<p>Content:<?php the_content(); ?></p>
+	<p>Date :<?php the_time('j F Y g:i:A');?></p>
+	<p>Author :<?php the_author(); ?></p>
+	<p>Comments:<?php comments_popup_link("comment nai","1 comment","% comments","comment_className","Disable Comments"); ?></p>
+	<a href="<?php the_permalink(); ?>">Read more..</a>
+</div>
+<hr>
+<?php endwhile; ?>
+```
+:end::end::end::end::end::end::end::end::end::end:
+
  পার্ট-৫ <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
