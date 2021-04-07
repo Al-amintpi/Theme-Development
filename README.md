@@ -169,7 +169,7 @@ add_action("after_setup_theme","coder_it_theme");
 ```
 :end::end::end::end::end::end::end::end::end::end:
 
-পার্ট-৪ <br>
+পার্ট-৪ :fire: <br>
 আজকে আমরা জানবো কিভাবে post-type-register করতে হয় <br>
 আমরা যেভাবে menu-register করেছি ঠিক সেই ভাবে post-type-register .<br>
 post-type-register বলতে blog-post মতো repited এমন কিছু জন্য নতুন অ্যাড পোস্ট তৈরি করাকে বুঝাই <br>
@@ -295,7 +295,7 @@ example :single-service
 <?php get_footer(); ?>
 ```
 
- পার্ট-৫ <br>
+ পার্ট-৫ :fire: <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
  আর এই প্রসেস তে হইলো <br>
@@ -309,8 +309,9 @@ example :single-service
  step -৫: sample.config .php ফাইল টিকে কপি করে rename config.php করবো আর সব কাজ এর ভিতরে করবো <br>
  step -৬: require_once("inc/Redux/ReduxCore/framework.php");<br>
  step -৭: require_once("inc/Redux/sample/config.php");<br>
-
-   
-   
-   
+ 
+ পার্ট-৬ :fire:<br>
+ Redux option তৈরি করার ক্ষেত্রে আমরা যদি icon ব্যবহার করতে চাই তাহলে wp_dash_icon ব্যবহার করবো <br>
+ আর এই সম্পর্ণ কাজটি আমরা config.php ফাইলে করবো <br>
+ এখন আমি Redux option সব গুলি option ডিলিট করে ফ্রেশ করবো 
    
