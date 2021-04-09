@@ -294,7 +294,7 @@ example :single-service
 
 <?php get_footer(); ?>
 ```
-
+:end::end::end::end::end::end::end::end::end::end:
  পার্ট-৫ :fire: <br>
  নতুন একটি থিম ডেভেলপ করার প্রসেস এন্ড Redux SetUp <br>
  ওয়ার্ডপ্রেস $() সাপোর্ট করে না তাই scripts $() কে jQuery দিয়ে convert করবো <br> 
@@ -309,9 +309,166 @@ example :single-service
  step -৫: sample.config .php ফাইল টিকে কপি করে rename config.php করবো আর সব কাজ এর ভিতরে করবো <br>
  step -৬: require_once("inc/Redux/ReduxCore/framework.php");<br>
  step -৭: require_once("inc/Redux/sample/config.php");<br>
- 
+ :end::end::end::end::end::end::end::end::end::end:
  পার্ট-৬ :fire:<br>
  Redux option তৈরি করার ক্ষেত্রে আমরা যদি icon ব্যবহার করতে চাই তাহলে wp_dash_icon ব্যবহার করবো <br>
  আর এই সম্পর্ণ কাজটি আমরা config.php ফাইলে করবো <br>
  এখন আমি Redux option সব গুলি option ডিলিট করে ফ্রেশ করবো 
+ আমরা যে ব্লগ ওয়েবসাইট টি তৈরি করছি তার প্রতি টি অপসন ডাইনামিক করার জন্য এই পার্ট ,
+   ```
+    // Header Option Custom
+    Redux::setSection($opt_name, array(
+        "title"  => "Header Option",
+        "id"  => "header",
+        "icon" => "el el-comment-alt"
+
+    ));
+
+    // Header Color change option
+    Redux::setSection($opt_name, array(
+        "id" => "header-color",
+        "title" => "Header background color",
+        "subsection" => true,
+        "fields" => array(
+            array(
+                "id" => "header-bg-color",
+                "type" => "color",
+                "title" => "Header background color Added",
+                "desc" => "header bg color",
+                "default" => "#000"
+            )   
+
+        )
+    ));
    
+   // Website Icon Change
+    Redux::setSection($opt_name, array(
+        "title"  => "Site Icon change",
+        "id"  => "website-icon",
+        "subsection" => true,
+        "fields" => array(
+            array(
+
+                "id" => "site-icon-change",
+                "title" => "Website-Icon-Change",
+                "type" => "media",
+                "default" => array(
+                    "url" => get_template_directory_uri()."/assets/img/1.png",
+
+                )
+            )
+        )
+
+    ));
+
+    // Logo change Option
+    Redux::setSection($opt_name, array(
+        "title"  => "Logo",
+        "id"  => "logo",
+        "subsection" => true,
+        "fields" => array(
+
+            array(
+                "id" => "logo_uploader",
+                "type" => "text",
+                "title" => "Logo Uploader",
+                "default" => "Coder It solution"
+            ),
+
+
+            array(
+
+                "id" => "logo-upload",
+                "type" => "media",
+                "title" => "Logo Uploaded",
+                "default" => array(
+                    "url" => get_template_directory_uri()."/assets/img/logo.png",
+
+                )
+
+            ),
+            array(
+                "id" => "logo-hide-show",
+                "type" => "checkbox",
+                "title" => "Logo hide show",
+                "desc" => "logo hide show"
+
+            )
+             
+        )
+
+    ));
+
+    // Login Register Url create Option
+
+    Redux::setSection($opt_name, array(
+        "title" => "Login Icon Url",
+        "id" => "login-url-option",
+        "subsection" =>true,
+        "fields" => array(
+            array(
+                "id" => "logo-url",
+                "title" => "Login Url",
+                "type" => "text",
+                "desc" => "Login Url"
+
+            ),
+            array(
+                "id" => "register-url",
+                "title" => "Regiter Url",
+                "type" => "text",
+                "desc" => "Register Url"
+            )
+        )
+
+
+    ));
+
+    Redux::setSection($opt_name, array(
+        "id" => "footer-option",
+        "title" => "Footer Option",
+        "icon" => "el el-dribbble",
+        "fields" => array(
+
+            array(
+
+                "id" => "footer-copyright",
+                "title" => "Footer Copy Right Option",
+                "type" => "editor",
+                "desc" => "Footer Copy Right Option"
+
+            )
+        )
+
+
+    ));
+
+    // Blog-Grid-background-image
+    Redux::setSection($opt_name, array(
+        "title"  => "Blog Background Option",
+        "id" => "blog-background-option",
+        "icon" => "el el-address-book",
+        "fields" => array(
+            array(
+                "id" => "blog-background-image",
+                "type" => "background",
+                "default" => array(
+                    "background-color" => '#1e73be',
+                    "background-repeat" => "no-repeat",
+                    "background-attachment" => "scroll",
+                    "background-position" => "center center",
+                    "background-image" => get_template_directory_uri()."/assets/img/banners/bg.jpg",
+                    "background-size" => "cover",
+                    "background-clip" => "border-box",
+                    "background-origin" => "inherit"
+
+
+                )
+            )
+
+        )
+    ));
+
+   ```
+   
+   :end::end::end::end::end::end::end::end::end::end:
