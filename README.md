@@ -472,3 +472,23 @@ example :single-service
    ```
    
    :end::end::end::end::end::end::end::end::end::end:
+   
+পার্ট-৭
+আজকে আমরা জানবো কিভাবে repited কনটেন্ট গুলির অপসন তৈরি করে যাই। 
+ACF (Advance customization field) ফ্রি ভার্সন repited অপসন টি আমরা পাবো না। আমাদের কে pro insall করতে হবে 
+ACF থেকে আমি যে ফিল্ড গুলি তৈরি করবো সেই ফিল্ড গুলি value show করানো জন্য 
+:heart:	 the_field("ID_Name")  
+যদি custom post_type তৈরি করে সেইখান থেকে ভ্যালু show করাতে চাই 
+:heart:	the_title() 
+
+Note: Feature Image ইউআরএল নিতে চাই তাহলে আমাকে নিচের এই ফাঙ্কশন টি ব্যবহার করতে হবে 
+wp_get_attachment_url( get_post_thumbnail_id() )
+ 
+
+
+
+
+
+
+
+
