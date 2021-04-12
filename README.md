@@ -473,16 +473,55 @@ example :single-service
    
    :end::end::end::end::end::end::end::end::end::end:
    
-পার্ট-৭
-আজকে আমরা জানবো কিভাবে repited কনটেন্ট গুলির অপসন তৈরি করে যাই। 
-ACF (Advance customization field) ফ্রি ভার্সন repited অপসন টি আমরা পাবো না। আমাদের কে pro insall করতে হবে 
-ACF থেকে আমি যে ফিল্ড গুলি তৈরি করবো সেই ফিল্ড গুলি value show করানো জন্য 
-:heart:	 the_field("ID_Name")  
-যদি custom post_type তৈরি করে সেইখান থেকে ভ্যালু show করাতে চাই 
-:heart:	the_title() 
+পার্ট-৭ <br>
+আজকে আমরা জানবো কিভাবে repited কনটেন্ট গুলির অপসন তৈরি করে যাই। <br> 
+ACF (Advance customization field) ফ্রি ভার্সন repited অপসন টি আমরা পাবো না। আমাদের কে pro insall করতে হবে <br>
+ACF থেকে আমি যে ফিল্ড গুলি তৈরি করবো সেই ফিল্ড গুলি value show করানো জন্য <br>
+:heart:	 the_field("ID_Name")  <br>
+যদি custom post_type তৈরি করে সেইখান থেকে ভ্যালু show করাতে চাই <br>
+:heart:	the_title() <br>
 
-Note: Feature Image ইউআরএল নিতে চাই তাহলে আমাকে নিচের এই ফাঙ্কশন টি ব্যবহার করতে হবে 
-wp_get_attachment_url( get_post_thumbnail_id() )
+Note: Feature Image ইউআরএল নিতে চাই তাহলে আমাকে নিচের এই ফাঙ্কশন টি ব্যবহার করতে হবে <br>
+wp_get_attachment_url( get_post_thumbnail_id() ) <br>
+
+Repeater থেকে কি ভাবে কনটেন্ট দেখাবো তা জানবো <br>
+Repeater type থেকে sub-field গুলিকে দেখানোর জন্য নিচের কোড গুলি মাথায় রাখতে হবে <br>
+```
+<?php
+
+	$works = new WP_Query(array(
+		"post_type" => "works",
+		"posts_per_page" => 6
+
+	));
+
+	while($works->have_posts()): $works->the_post();
+		$terms = get_the_terms(get_the_id(),"works_type");
+ ?>
+<div class="portfolio-grid-item mix <?php
+	foreach($terms as $term){
+		echo $term->slug; 
+	}	 
+ ?>">
+	<div class="portfolio-grid-image portfolio-masonary-overly-image">
+		 <?php the_post_thumbnail(); ?>
+	</div>
+
+	<!------ work-overly ----->
+	<div class="portfolio-grid-overly portfolio-masonary-overly">
+		<ul>
+			<li><a href=""><i class="fas fa-heart"></i></a></li>
+
+			<li><a class="work-popup" href="<?php the_field("popup_image"); ?>"><i class="fas fa-search-plus"></i></a></li>
+
+			<li><a href="<?php the_permalink(); ?>"><i class="fas fa-link"></i></a></li>
+
+		</ul>
+	</div>
+</div>
+<?php endwhile; ?>
+
+```
  
 
 
