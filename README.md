@@ -473,7 +473,7 @@ example :single-service
    
    :end::end::end::end::end::end::end::end::end::end:
    
-পার্ট-৭ <br>
+পার্ট-৭ :fire:<br>
 আজকে আমরা জানবো কিভাবে repited কনটেন্ট গুলির অপসন তৈরি করে যাই। <br> 
 ACF (Advance customization field) ফ্রি ভার্সন repited অপসন টি আমরা পাবো না। আমাদের কে pro insall করতে হবে <br>
 ACF থেকে আমি যে ফিল্ড গুলি তৈরি করবো সেই ফিল্ড গুলি value show করানো জন্য <br>
