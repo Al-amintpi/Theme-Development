@@ -565,3 +565,91 @@ if ( comments_open() || get_comments_number() ) {
 ?>
 
 ````
+
+
+এখন আমরা জানবো কি ভাবে widget তৈরি করে যাই <br>
+নিচের কোড গুলি মাধ্যমে আমরা widget তৈরি করতে পারি <br>
+```
+class AMBER_WORKS_WIDGET extends WP_Widget{
+
+
+	public function __construct(){
+		parent::__construct("aw_works","Amber Works Widget",array(
+			"description" => "Amber Latest Works Widget"
+		));
+	}
+
+	public function form($instance){
+		?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>">Title</label>
+			<input type="text" class="widefat" name="<?php echo $this->get_field_name('title'); ?>" id="<?php echo $this->get_field_id('title'); ?>" value="<?php if(isset($instance['title'])){echo $instance['title'];} ?>">
+		</p>
+
+		<?php
+	}
+
+	public function widget($args,$instance){
+		?>
+			<div class="latest-work-main">
+				<h4><?php echo $instance['title']; ?></h4>
+				<div class="latest-work owl-carousel owl-theme">
+					<?php
+				 		$latest = new WP_Query(array(
+				 		"post_type" => 'works',
+				 		"posts_per_page" => 10,
+				 		"order" => "DESC"
+				 		 
+				 	));
+				 	while($latest->have_posts()):$latest->the_post();
+				  ?>
+						<div class="latest-slide-image">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						 
+						 <?php endwhile;wp_reset_postdata(); ?>
+				</div>
+			</div>
+		<?php
+	}
+
+}
+
+
+
+// Footer Widget Sidebar Register
+function footer_widget(){
+
+	register_widget('AMBER_WORKS_WIDGET');
+
+	register_sidebar(array(
+		"name"  => "Footer Widget 1",
+		"id"    => "footer-widget-1"
+
+	));
+	register_sidebar(array(
+		"name"  => "Footer Widget 2",
+		"id"    => "footer-widget-2"
+
+	));
+	register_sidebar(array(
+		"name"	=> "Blog Widget",
+		"id"	=> "blog-widget",
+		"before_widget" => "<div class='singlepost-slide'><div class='categories'>",
+		"after_widget"	=> "</div></div>",
+		"before_title"	=> "<h4>",
+		"after_title"	=> "</h4"
+
+	));
+
+}
+add_action("widgets_init","footer_widget");
+
+```
+
+
+
+
+
+
